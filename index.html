@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>369° Passion — Penang Collectibles Storefront & Hobby Marketplace</title>
+  <meta name="description" content="Penang collectibles storefront and preview of the future hobby marketplace. Sealed booster boxes, single cards, accessories, and café concept.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/369-passion-logo.svg">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header (Clean single-logo treatment, Shop / Marketplace / Visit Us) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-link-clean" onclick="returnToStore()">
+        <img class="brand-logo-clean" src="assets/369-passion-logo.svg" alt="369° Passion">
+        <span class="brand-title-compact">369° <span>Passion</span></span>
+      </a>
+
+      <!-- Compact Main Navigation -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#shop-section" class="nav-link" onclick="navigateTo('shop-section')">Shop</a></li>
+          <li><a href="#marketplace-section" class="nav-link" onclick="navigateTo('marketplace-section')">Marketplace</a></li>
+          <li><a href="#visit-section" class="nav-link" onclick="navigateTo('visit-section')">Visit Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Bag Action Control -->
+      <div class="header-actions">
+        <button class="icon-btn" onclick="openCartDrawer()" aria-label="Open Collector Bag">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-count-badge" id="bag-count-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STOREFRONT VIEW -->
+  <main id="main-storefront-view">
+    
+    <!-- Hero Section (Direct Lunar Fox clickable link) -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              Penang Store Concept & Café
+            </div>
+            <h1 class="hero-title">
+              For the <em>love</em> of collecting.
+            </h1>
+            <p class="hero-desc">
+              Trading cards, collectibles and a place to share the hobby in Penang.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="navigateTo('shop-section')">
+                <span>Shop trading cards</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+              <button class="btn-secondary" onclick="navigateTo('marketplace-section')">
+                Explore the marketplace
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Visual with Direct In-Image Clickable Link to the Lunar Fox Foil -->
+          <div class="hero-visual">
+            <img class="hero-img" src="assets/hero-collectors.png" alt="369° Passion Counter with Lunar Fox Single, Booster Box and Coffee">
+            
+            <a href="javascript:void(0)" class="hero-lunar-foil-pill" id="hero-lunar-foil-link" title="Open product detail">
+              <img src="assets/shop-lunar-fox-single.webp" style="width: 38px; height: 38px; object-fit: contain; border-radius: 3px; background: rgba(0,0,0,0.3);">
+              <div>
+                <span style="display: block; font-size: 0.76rem; color: rgba(250,246,239,0.7);">Featured Foil in Scene</span>
+                <span class="hero-lunar-foil-action">
+                  View Lunar Fox Foil
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL IMAGE-LED CATEGORY TILES -->
+    <section class="container">
+      <div class="category-gateway-grid">
+        <!-- Sealed Products -->
+        <article class="cat-tile" onclick="filterCategory('sealed'); navigateTo('shop-section');">
+          <div class="cat-tile-media">
+            <img class="cat-tile-img" src="assets/shop-booster-box.webp" alt="Sealed Products">
+          </div>
+          <div class="cat-tile-content">
+            <h3 class="cat-tile-title">Sealed Products</h3>
+            <p class="cat-tile-desc">Booster boxes & collector packs in factory shrink wrap.</p>
+            <span class="cat-tile-link">
+              Browse Sealed
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Single Cards -->
+        <article class="cat-tile" onclick="filterCategory('singles'); navigateTo('shop-section');">
+          <div class="cat-tile-media">
+            <img class="cat-tile-img" src="assets/shop-lunar-fox-single.webp" alt="Single Cards">
+          </div>
+          <div class="cat-tile-content">
+            <h3 class="cat-tile-title">Single Cards</h3>
+            <p class="cat-tile-desc">Authenticated raw singles, secret rares and gradeable foils.</p>
+            <span class="cat-tile-link">
+              Browse Singles
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Accessories -->
+        <article class="cat-tile" onclick="filterCategory('accessories'); navigateTo('shop-section');">
+          <div class="cat-tile-media">
+            <img class="cat-tile-img" src="assets/shop-velvet-binder.webp" alt="Archival Accessories">
+          </div>
+          <div class="cat-tile-content">
+            <h3 class="cat-tile-title">Accessories</h3>
+            <p class="cat-tile-desc">Velvet binders, magnetic cases and tournament sleeves.</p>
+            <span class="cat-tile-link">
+              Browse Accessories
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHOP CATALOG SECTION -->
+    <section class="container" id="shop-section" style="padding-top: var(--space-xl);">
+      <div class="section-header">
+        <span class="section-eyebrow">The Shop Collection</span>
+        <h2 class="section-title">Trading Card Catalog</h2>
+        <p class="section-subtitle">
+          Curated sample products across sealed boxes, single cards and accessories.
+        </p>
+      </div>
+
+      <!-- Catalog Controls / Filters -->
+      <div class="catalog-toolbar">
+        <div class="category-tabs">
+          <button class="cat-tab active" data-cat="all" onclick="filterCategory('all', this)">All Products</button>
+          <button class="cat-tab" data-cat="sealed" onclick="filterCategory('sealed', this)">Sealed Products</button>
+          <button class="cat-tab" data-cat="singles" onclick="filterCategory('singles', this)">Single Cards</button>
+          <button class="cat-tab" data-cat="accessories" onclick="filterCategory('accessories', this)">Accessories</button>
+        </div>
+
+        <div class="toolbar-controls">
+          <span id="shop-results-count" style="font-size: 0.82rem; color: var(--color-ink-muted);">Showing 8 items</span>
+
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" class="search-input" id="catalog-search-input" placeholder="Search products..." oninput="handleSearch(this.value)">
+          </div>
+
+          <select class="sort-select" onchange="handleSort(this.value)">
+            <option value="featured">Featured First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Product Grid -->
+      <div class="product-grid" id="shop-product-grid">
+        <!-- Rendered via app.js with Name & Price First, then Highlights -->
+      </div>
+    </section>
+
+    <!-- COLLECTOR MARKETPLACE SECTION (Warmer Taupe Background) -->
+    <section class="marketplace-preview-section" id="marketplace-section">
+      <div class="container">
+        <!-- Optional Non-blocking feedback toast -->
+        <div id="marketplace-feedback-banner"></div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-lg); gap: var(--space-md);">
+          <div>
+            <span class="section-eyebrow">Hobby Marketplace Preview</span>
+            <h2 class="section-title">From one collection to another.</h2>
+            <p class="section-subtitle">
+              Sample listings showing how trading cards, graded slabs and collectible toys could sit together in a future marketplace.
+            </p>
+          </div>
+          <button class="btn-primary" onclick="openListItemModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            List an item
+          </button>
+        </div>
+
+        <div class="product-grid" id="marketplace-grid" style="margin-bottom: 0;">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT PENANG STORE CONCEPT SECTION -->
+    <section class="container visit-section" id="visit-section">
+      <div class="visit-grid">
+        <div class="visit-content">
+          <span class="section-eyebrow">Penang Store Concept</span>
+          <h2 class="section-title">A place to share the hobby.</h2>
+          <p>
+            369° Passion brings the uniform identity, café warmth and trading card curation under one roof. In the future physical store, collectors can enjoy pour-over coffee, trade at dedicated tables, or pick up online orders in person.
+          </p>
+
+          <ul class="store-detail-list">
+            <li class="store-detail-item">
+              <svg class="store-detail-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Penang, Malaysia</strong><br>
+                Storefront location and exact address to be announced upon launch
+              </div>
+            </li>
+            <li class="store-detail-item">
+              <svg class="store-detail-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <div>
+                <strong>Planned Operating Hours</strong><br>
+                Café counter, lounge hours, and weekly trade sessions to be confirmed
+              </div>
+            </li>
+            <li class="store-detail-item">
+              <svg class="store-detail-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <div>
+                <strong>In-Store Order Collection</strong><br>
+                Online orders can be collected directly at the shop counter
+              </div>
+            </li>
+          </ul>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn-primary" style="background: var(--color-antique-brass);" onclick="navigateTo('shop-section')">
+              Browse shop catalog
+            </button>
+          </div>
+        </div>
+
+        <div class="visit-visual">
+          <img src="assets/cafe-interior.jpg" alt="369° Passion Café Concept">
+          <div class="visit-visual-caption">Café concept imagery</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CHECKOUT VIEW (SIMULATED DEMO CHECKOUT WITH SAMPLE CUSTOMER CARD) -->
+  <section id="checkout-view" class="checkout-view container">
+    <div style="margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <span class="section-eyebrow">Demo Checkout</span>
+        <h1 class="section-title">Order Summary & Fulfilment</h1>
+      </div>
+      <button class="btn-secondary" onclick="returnToStore()">
+        ← Back to shop
+      </button>
+    </div>
+
+    <div class="checkout-grid">
+      <!-- Fulfilment Column -->
+      <div>
+        <div class="checkout-card">
+          <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 6px;">Fulfilment Option</h3>
+          <p style="font-size: 0.85rem; color: var(--color-ink-muted);">Choose how you would receive this sample order.</p>
+
+          <div class="fulfillment-options">
+            <div class="fulfillment-card selected" data-fulfillment="pickup" onclick="setFulfillment('pickup')">
+              <input type="radio" name="fulfillment" value="pickup" checked>
+              <div class="fulfillment-title">Pick up in Penang</div>
+              <div class="fulfillment-desc">Collect at the Penang shop counter.</div>
+              <div class="fulfillment-fee">FREE OF CHARGE</div>
+            </div>
+
+            <div class="fulfillment-card" data-fulfillment="delivery" onclick="setFulfillment('delivery')">
+              <input type="radio" name="fulfillment" value="delivery">
+              <div class="fulfillment-title">Tracked Courier Delivery</div>
+              <div class="fulfillment-desc">Rigid card armor packing, doorstep delivery.</div>
+              <div class="fulfillment-fee">+ RM 12.00 (Example fee)</div>
+            </div>
+          </div>
+
+          <div id="fulfillment-instructions">
+            <div class="fulfillment-notice-box">
+              <strong>Example Penang In-Store Collection:</strong><br>
+              Penang Store Concept • Order inspected, sleeved, and prepared at our café counter.
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Customer Card (Compact Summary, Non-editable) -->
+        <div class="checkout-card">
+          <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 6px;">Customer Details</h3>
+          <p style="font-size: 0.85rem; color: var(--color-ink-muted); margin-bottom: 10px;">Sample customer profile for this demonstration.</p>
+          
+          <div class="sample-customer-box">
+            <div class="sample-cust-row">
+              <span style="color: var(--color-ink-muted);">Customer:</span>
+              <strong>Sample Collector</strong>
+            </div>
+            <div class="sample-cust-row">
+              <span style="color: var(--color-ink-muted);">Location:</span>
+              <span>Penang, Malaysia</span>
+            </div>
+            <div class="sample-cust-row">
+              <span style="color: var(--color-ink-muted);">Order Mode:</span>
+              <span style="color: var(--color-heritage-teal); font-weight: 600;">Walkthrough Simulation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary Column -->
+      <div>
+        <div class="checkout-card" style="position: sticky; top: 90px;">
+          <h3 style="font-size: 1.25rem; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; margin-bottom: var(--space-md);">
+            Order Summary
+          </h3>
+
+          <div id="checkout-items-summary" style="margin-bottom: var(--space-md); max-height: 280px; overflow-y: auto;">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div style="border-top: var(--border-fine); padding-top: 14px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span style="color: var(--color-ink-muted);">Subtotal</span>
+              <span style="font-weight: 600;" id="checkout-subtotal">RM 0.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span style="color: var(--color-ink-muted);">Fulfilment Method</span>
+              <span style="font-weight: 600;" id="checkout-shipping">FREE (Store Pickup)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 700; border-top: var(--border-fine); padding-top: 10px; margin-top: 10px;">
+              <span>Total Amount</span>
+              <span style="color: var(--color-heritage-teal);" id="checkout-total">RM 0.00</span>
+            </div>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 1.05rem;" onclick="executeDemoCheckout()">
+            Place demo order
+          </button>
+          
+          <div style="text-align: center; font-size: 0.74rem; color: var(--color-ink-muted); margin-top: 10px;">
+            Simulated demonstration order • No payment required
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIRMATION VIEW (ORDER SUCCESS) -->
+  <section id="confirmation-view" class="container" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="confirmation-box">
+      <div class="conf-check-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <span class="section-eyebrow">Demo Order Placed</span>
+      <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.4rem; font-weight: 600; line-height: 1.1; margin-bottom: 8px;">
+        Sample Order Confirmation
+      </h1>
+      <p style="font-size: 0.95rem; color: var(--color-ink-muted); margin-bottom: var(--space-lg);">
+        Order Reference: <strong id="conf-order-number" style="color: var(--color-ink-espresso); font-family: monospace; font-size: 1.05rem;">369-DEMO-10420</strong>
+      </p>
+
+      <div style="background: var(--color-surface-card); border: var(--border-fine); border-radius: var(--radius-md); padding: var(--space-md); text-align: left; margin-bottom: var(--space-lg);">
+        <div style="margin-bottom: 12px; font-size: 0.9rem;">
+          <span style="color: var(--color-ink-muted);">Selected Fulfilment:</span><br>
+          <strong id="conf-fulfillment-method">Penang Store Concept Collection (FREE)</strong>
+        </div>
+
+        <div style="margin-bottom: 12px; font-size: 0.9rem;">
+          <span style="color: var(--color-ink-muted);">Purchased Items:</span>
+          <ul id="conf-items-list" style="list-style: none; margin-top: 6px;">
+            <!-- Populated via app.js -->
+          </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; padding-top: 10px; border-top: var(--border-fine);">
+          <span>Total Demo Amount:</span>
+          <span id="conf-total-val" style="color: var(--color-heritage-teal);">RM 0.00</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn-primary" onclick="returnToStore()">
+          Continue browsing shop
+        </button>
+        <button class="btn-secondary" onclick="window.print()">
+          Print summary
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Collector Bag Drawer -->
+  <div class="cart-backdrop" id="cart-backdrop" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Collector Bag Drawer">
+    <div class="cart-header">
+      <h2 class="cart-title">Your Collector Bag</h2>
+      <button class="icon-btn" onclick="closeCartDrawer()" aria-label="Close Bag">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-items-wrap" id="cart-items-container">
+      <!-- Populated dynamically via app.js -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">RM 0.00</span>
+      </div>
+      <p style="font-size: 0.78rem; color: var(--color-ink-muted); margin-bottom: var(--space-sm);">
+        Pick up in Penang or courier delivery chosen at checkout.
+      </p>
+      <button class="btn-primary" style="width: 100%;" onclick="proceedToCheckout()">
+        Proceed to checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Unified Product Detail & Action Modal Backdrop -->
+  <div class="modal-backdrop" id="product-modal-backdrop" onclick="if(event.target === this) closeProductModal()">
+    <div id="product-modal-content">
+      <!-- Injected dynamically for PDP, Marketplace item, or Listing form -->
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">369° <span>Passion</span></div>
+          <div class="footer-motto">Café · Collection · Curation</div>
+          <p class="footer-desc">
+            Trading cards, collectibles and a place to share the hobby in Penang.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Shop</h4>
+          <ul class="footer-nav">
+            <li><a href="#shop-section" onclick="filterCategory('sealed'); navigateTo('shop-section');">Sealed Products</a></li>
+            <li><a href="#shop-section" onclick="filterCategory('singles'); navigateTo('shop-section');">Single Cards</a></li>
+            <li><a href="#shop-section" onclick="filterCategory('accessories'); navigateTo('shop-section');">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Marketplace</h4>
+          <ul class="footer-nav">
+            <li><a href="#marketplace-section" onclick="navigateTo('marketplace-section')">Browse Listings</a></li>
+            <li><a href="javascript:void(0)" onclick="openListItemModal()">List an Item</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Visit Us</h4>
+          <p style="font-size: 0.86rem; color: rgba(250, 246, 239, 0.75); line-height: 1.6; margin-bottom: 10px;">
+            Penang, Malaysia<br>
+            Physical store and café concept.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 369° Passion. All rights reserved. Penang, Malaysia.</div>
+        <div>Storefront & Marketplace Mockup Plan</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

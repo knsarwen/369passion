@@ -1,0 +1,4 @@
+# Ignore archive zips and temporary folders
+*.zip
+Source/
+.agent/
